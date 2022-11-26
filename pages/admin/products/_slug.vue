@@ -16,14 +16,12 @@
       <div class="mb-3">
         <label for="slug"><span class="for">Категории</span></label>
         <select name="category">
-          <!--          <option v-for="category of categories"-->
 
-          <!--          <option v-for="category of categories"-->
 
-          <!--          <option v-for="category of allCategories"-->
-          <!--              :value="category.slug"-->
-          <!--                  :selected="product.category.name === category.name"-->
-          <!--          >{{ category.name }}</option>-->
+                    <option v-for="category of categories"
+                        :value="category.slug"
+                            :selected="product.category.name === category.name"
+                    >{{ category.name }}</option>
         </select>
       </div>
       <div class="mb-3">
@@ -222,10 +220,10 @@ export default {
   },
   async fetch() {
     this.product = await this.$axios.$get(
-      "http://api.tortam.ru/api/v1/product/" + this.$route.params.slug
+      "http://api.tortam.ru/public/api/v1/product/" + this.$route.params.slug
     );
     this.categories = await this.$axios.$get(
-      "http://api.tortam.ru/api/v1/categories/"
+      "http://api.tortam.ru/public/api/v1/categories"
     );
 
 
