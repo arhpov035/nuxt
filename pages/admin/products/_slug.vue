@@ -222,10 +222,10 @@ export default {
   },
   async fetch() {
     this.product = await this.$axios.$get(
-      "/product/" + this.$route.params.slug
+      "http://api.tortam.ru/api/v1/product/" + this.$route.params.slug
     );
     this.categories = await this.$axios.$get(
-      "/categories/"
+      "http://api.tortam.ru/api/v1/categories/"
     );
 
 
