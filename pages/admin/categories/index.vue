@@ -1,27 +1,5 @@
-<!--<template>-->
-<!--  <div class="page-index-admin">-->
-<!--  <h3>Категории</h3>-->
-<!--    <form v-on:submit.prevent>-->
-<!--      {{ category.name }}-->
-<!--      <div class="mb-3">-->
-<!--        <label for="slug"><span class="for">Slug</span></label>-->
-<!--        <input type="text" name="slug" v-model="category.slug" class="form-control" id="slug">-->
-<!--      </div>-->
-<!--      <div class="mb-3">-->
-<!--        <label for="slug"><span class="for">Название</span></label>-->
-<!--        <input type="text" v-model="category.name" class="form-control" id="name">-->
-<!--      </div>-->
-<!--      <div class="mb-3">-->
-<!--        <input type="checkbox" class="checkbox" id="published">-->
-<!--      </div>-->
-
-<!--      <button  @click="getCategory" type="submit" class="btn" style="background-color: #000">Отправить</button>-->
-<!--      <button  @click="createCategory" type="submit" class="btn" style="background-color: #000">Создать</button>-->
-<!--    </form>-->
-<!--  </div>-->
-<!--</template>-->
 <template>
-  <Sidebar/>
+  <h1>Категории</h1>
 </template>
 <script>
 

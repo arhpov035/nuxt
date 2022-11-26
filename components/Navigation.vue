@@ -3,7 +3,7 @@
       <ul>
         <li><NuxtLink to="/">Главная</NuxtLink></li>
         <li><NuxtLink to="/product">Торты</NuxtLink></li>
-        <li><NuxtLink to="/admin/category/kapkeyk">Админка</NuxtLink></li>
+        <li><NuxtLink to="/admin">Админка</NuxtLink></li>
       </ul>
     </nav>
 </template>
