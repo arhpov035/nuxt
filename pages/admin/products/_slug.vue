@@ -233,6 +233,18 @@ export default {
     this.dd(this.$route.params.slug);
     this.dd(this.categories);
   },
+  // mounted() {
+  //   await axios.get('/categories/').then(response => {
+  //     this.products = response.data
+  //   })
+  // }
+  // async asyncData({ $axios }) {
+  //   console.log($axios)
+  //   axios.get('/categories/').then(response => {
+  //     this.products = response.data
+  //     console.log(this.products)
+  //   })
+  // }
 };
 </script>
 

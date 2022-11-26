@@ -60,7 +60,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/proxy'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -70,12 +69,8 @@ export default {
     credentials: true,
     common: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    // proxy: true,
-  },
-  proxy: {
-    '/api/v1': { target: 'http://api.tortam.ru/api/v1', pathRewrite: {'^/api/v1': ''}, changeOrigin: true }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
