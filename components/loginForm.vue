@@ -1,6 +1,5 @@
 <template>
   <div class="login-form">
-
     <div class="enter">
       <h3>Привет: {{ nameUser }}</h3>
       <a href="" @click.prevent="showForm" class="showForm">Войти</a>
@@ -13,22 +12,32 @@
         <!--        </div>-->
         <!--        <div :class="{ errorFocus: isActiveFocus }" class="focus">образец email: <span class="emailCorrect">admin@site.ru</span>-->
         <!--        </div>-->
-        <input v-model="user.email" v-on:input="valideFocus('email', '#email')" type="text" class="form-control"
-               id="email"
-        >
+        <input
+          v-model="user.email"
+          v-on:input="valideFocus('email', '#email')"
+          type="text"
+          class="form-control"
+          id="email"
+        />
       </div>
 
       <div class="mb-3">
         <label for="password">Пароль</label>
 
-        <div :class="{ error:  error.isActiveErrorClass }" class="password">{{ error.messageError }}</div>
+        <div :class="{ error: error.isActiveErrorClass }" class="password">
+          {{ error.messageError }}
+        </div>
 
-        <input v-model="user.password" type="password" v-on:input="valideFocus('password', '#password')"
-               class="form-control pass" id="password"
-        >
+        <input
+          v-model="user.password"
+          type="password"
+          v-on:input="valideFocus('password', '#password')"
+          class="form-control pass"
+          id="password"
+        />
       </div>
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
       </div>
       <button @click="userLogin" type="submit" class="btn green">Login</button>
@@ -41,49 +50,47 @@
 export default {
   data() {
     return {
-      nameUser: 'Гость',
+      nameUser: "Гость",
       user: {
-
-        email: '',
-        password: '',
+        email: "",
+        password: "",
       },
       error: {
         result: false,
         isActiveErrorClass: false,
         messageError: false,
         email: {
-          text: '`Введите корректный email: admin@site.ru`',
+          text: "`Введите корректный email: admin@site.ru`",
           empty: false,
           value: false,
         },
-        password: '',
+        password: "",
       },
       isActiveEmail: false,
       isActivePassword: false,
       isActiveFocus: false,
       currentCountCharactersFromString: 0,
       loggedUser: {},
-    }
+    };
   },
   methods: {
     async userLogin() {
-
-
-      await this.$axios.get('/sanctum/csrf-cookie').then(response => {
-        this.$axios.post('/auth/login', {
-          email: this.user.email,
-          password: this.user.password,
-        }).then((response) => {
-          this.loggetUser = response.data;
-          console.log(this.user.email);
-          console.log(this.user.password);
-          console.log(response.data);
-        }).catch((error) => {
-          console.log(error.data)
-        })
-      })
-
-
+      await this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+        this.$axios
+          .post("/auth/login", {
+            email: this.user.email,
+            password: this.user.password,
+          })
+          .then((response) => {
+            this.loggetUser = response.data;
+            console.log(this.user.email);
+            console.log(this.user.password);
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error.data);
+          });
+      });
 
       // if (this.error.result) {
       //   await this.$axios.get('/sanctum/csrf-cookie').then(response => {
@@ -102,104 +109,112 @@ export default {
       // }
     },
     async userLogout() {
-      await this.$axios.$delete('/auth/logout')
-      this.loggedUser = 'Гость';
+      await this.$axios.$delete("/auth/logout");
+      this.loggedUser = "Гость";
     },
     async getUser() {
-      this.loggedUser = await this.$axios.$get('/auth/user')
-      this.user.name = this.loggedUser.name
+      this.loggedUser = await this.$axios.$get("/auth/user");
+      this.user.name = this.loggedUser.name;
     },
     dd($data) {
-      console.log($data)
+      console.log($data);
     },
-    valideFocus(type = '', classEl = '') {
+    valideFocus(type = "", classEl = "") {
+      const messageError = document.createElement("div");
+      const messageSample = document.createElement("div");
 
-      const messageError = document.createElement('div')
-      const messageSample = document.createElement('div')
-
-      if (type == 'email') {
-
-
+      if (type == "email") {
         // div.setAttribute('class', 'myclass');
-        if (document.querySelector('.messageSample') == null) {
-          messageError.innerHTML = '<div  class="messageError">Введите корректный email</span></div>'
-          messageSample.innerHTML = '<div  class="messageSample">образец email: <span class="emailCorrect">admin@site.ru</span></div>'
-          document.querySelector('#email').insertAdjacentElement('beforebegin', messageSample)
+        if (document.querySelector(".messageSample") == null) {
+          messageError.innerHTML =
+            '<div  class="messageError">Введите корректный email</span></div>';
+          messageSample.innerHTML =
+            '<div  class="messageSample">образец email: <span class="emailCorrect">admin@site.ru</span></div>';
+          document
+            .querySelector("#email")
+            .insertAdjacentElement("beforebegin", messageSample);
         }
-        if (document.querySelector('.messageError') == null) {
-          document.querySelector('#email').insertAdjacentElement('beforebegin', messageError)
+        if (document.querySelector(".messageError") == null) {
+          document
+            .querySelector("#email")
+            .insertAdjacentElement("beforebegin", messageError);
         }
-      } else if (type == 'password') {
+      } else if (type == "password") {
         // if (document.querySelector('.messageError') == null){
         //   document.querySelector('#password').insertAdjacentElement('beforebegin', messageError);
         // }
       }
 
       if (this.user.email.length > this.currentCountCharactersFromString) {
-        this.fadeIn('.messageSample', 500, 'flex')
-        this.fadeOut('.messageError', 1)
+        this.fadeIn(".messageSample", 500, "flex");
+        this.fadeOut(".messageError", 1);
 
-        this.currentCountCharactersFromString = this.user.email.length
+        this.currentCountCharactersFromString = this.user.email.length;
 
         // if (this.user.email) {
         if (this.user.email) {
-          const messageSample = document.querySelector('.messageSample')
-          if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
+          const messageSample = document.querySelector(".messageSample");
+          if (
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+              this.user.email
+            )
+          ) {
             // focus.innerHTML = 'Эмейл введён корректно'
-            messageSample.innerHTML = 'Эмейл введён корректно'
+            messageSample.innerHTML = "Эмейл введён корректно";
             // this.error.email.value = true
-            this.error.result = true
+            this.error.result = true;
           } else {
-            messageSample.innerHTML = 'образец email: <span class="emailCorrect">admin@site.ru</span>'
-            this.error.result = false
+            messageSample.innerHTML =
+              'образец email: <span class="emailCorrect">admin@site.ru</span>';
+            this.error.result = false;
           }
         } else {
-          messageSample.innerHTML = 'образец email: <span class="emailCorrect">admin@site.ru</span>'
-          this.error.result = false
+          messageSample.innerHTML =
+            'образец email: <span class="emailCorrect">admin@site.ru</span>';
+          this.error.result = false;
         }
+      } else if (
+        this.user.email.length <= this.currentCountCharactersFromString
+      ) {
+        messageSample.innerHTML =
+          'образец email: <span class="emailCorrect">admin@site.ru</span>';
 
-      } else if (this.user.email.length <= this.currentCountCharactersFromString) {
-
-        messageSample.innerHTML = 'образец email: <span class="emailCorrect">admin@site.ru</span>'
-
-        this.currentCountCharactersFromString = this.user.email.length
-        this.fadeIn('.messageError', 500, 'flex')
-        this.fadeOut('.messageSample', 1)
-        this.error.result = false
+        this.currentCountCharactersFromString = this.user.email.length;
+        this.fadeIn(".messageError", 500, "flex");
+        this.fadeOut(".messageSample", 1);
+        this.error.result = false;
       }
     },
     showForm() {
-      this.fadeIn('form', 1000, 'block')
+      this.fadeIn("form", 1000, "block");
     },
     valideHideShow() {
-
-      this.dd(messageError.style.display)
-
+      this.dd(messageError.style.display);
     },
     fadeIn(element, timeout, display) {
-      const el = document.querySelector(element)
-      el.style.opacity = 0
-      el.style.display = display || 'block'
-      el.style.transition = `opacity ${timeout}ms`
+      const el = document.querySelector(element);
+      el.style.opacity = 0;
+      el.style.display = display || "block";
+      el.style.transition = `opacity ${timeout}ms`;
       setTimeout(() => {
-        el.style.opacity = 1
-      }, 10)
+        el.style.opacity = 1;
+      }, 10);
     },
     fadeOut(element, timeout) {
-      const el = document.querySelector(element)
-      el.style.opacity = 1
-      el.style.transition = `opacity ${timeout}ms`
-      el.style.opacity = 0
+      const el = document.querySelector(element);
+      el.style.opacity = 1;
+      el.style.transition = `opacity ${timeout}ms`;
+      el.style.opacity = 0;
 
       setTimeout(() => {
-        el.style.display = 'none'
-      }, timeout)
+        el.style.display = "none";
+      }, timeout);
     },
   },
   mounted() {
-    this.getUser()
-  }
-}
+    this.getUser();
+  },
+};
 </script>
 
 <style scoped>
@@ -212,7 +227,8 @@ export default {
   font-size: 14px;
 }
 
-.email, .password {
+.email,
+.password {
   display: none;
   color: darkred;
   border: 1px solid darkred;
@@ -223,7 +239,8 @@ export default {
   background-color: #f3f3f4;
 }
 
-.error, .errorFocus {
+.error,
+.errorFocus {
   display: block;
 }
 
@@ -242,10 +259,11 @@ h3 {
   color: #4cae4c;
 }
 
-.error, .errorFocus {
+.error,
+.errorFocus {
   display: block;
 }
-.enter{
+.enter {
   display: grid;
   align-items: center;
   justify-content: space-between;
