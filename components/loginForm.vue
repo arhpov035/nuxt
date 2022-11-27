@@ -75,9 +75,9 @@ export default {
   },
   methods: {
     async userLogin() {
-      await this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+      await this.$axios.get("http://api.tortam.ru/public/api/v1/sanctum/csrf-cookie").then((response) => {
         this.$axios
-          .post("/auth/login", {
+          .post("http://api.tortam.ru/public/api/v1/auth/login", {
             email: this.user.email,
             password: this.user.password,
           })
@@ -109,11 +109,11 @@ export default {
       // }
     },
     async userLogout() {
-      await this.$axios.$delete("/auth/logout");
+      await this.$axios.$delete("http://api.tortam.ru/public/api/v1/auth/logout");
       this.loggedUser = "Гость";
     },
     async getUser() {
-      this.loggedUser = await this.$axios.$get("/auth/user");
+      this.loggedUser = await this.$axios.$get("http://api.tortam.ru/public/api/v1/auth/user");
       this.user.name = this.loggedUser.name;
     },
     dd($data) {
