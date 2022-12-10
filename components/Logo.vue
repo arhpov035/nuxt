@@ -1,14 +1,14 @@
 <template>
   <div class="cotainer_logo">
     <img src="/images/conditer.png" />
-    <div class="logo">
+    <NuxtLink to="/" class="logo">
       <span class="t">T</span>
       <span class="o">O</span>
       <span class="r">R</span>
       <span class="t">T</span>
       <span class="a">A</span>
       <span class="m">M</span>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {};
 .logo {
   font-size: 26px;
   font-weight: bold;
+  text-decoration: none;
 }
 .t {
   color: #000;
