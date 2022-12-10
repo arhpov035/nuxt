@@ -12,7 +12,7 @@
             <div class="product-footer">{{ product.category.name }}</div>
           </div>
           <div class="product-image col-3">
-            <img class="img-fluid" :src="`../${product.image}`" :alt="product.image">
+            <img class="img-fluid" :src="`../images/${product.image}`" :alt="product.image">
           </div>
         </div>
       </div>

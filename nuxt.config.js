@@ -52,16 +52,9 @@ export default {
 
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    // '@nuxtjs/proxy',
   ],
 
-  // axios: {
-  //   credentials: true,
-  //   proxy: true
-  // },
-  // proxy: {
-  //   '/api/': { target: 'http://api.tortam.ru/api/v1', pathRewrite: {'^/api/': ''}, changeOrigin: true }
-  // },
 
   axios: {
     baseURL: 'http://api.tortam.ru/api/v1',

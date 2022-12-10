@@ -3,7 +3,7 @@
       <ul>
         <li><NuxtLink to="/">Главная</NuxtLink></li>
         <li><NuxtLink to="/product">Торты</NuxtLink></li>
-        <li><NuxtLink to="/admin">Админка</NuxtLink></li>
+        <li><a href="http://api.tortam.ru/admin/login" target="_blank">Админка</a></li>
       </ul>
     </nav>
 </template>

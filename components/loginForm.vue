@@ -77,7 +77,7 @@ export default {
     async userLogin() {
       await this.$axios.get("http://api.tortam.ru/public/api/v1/sanctum/csrf-cookie").then((response) => {
         this.$axios
-          .post("http://api.tortam.ru/public/api/v1/auth/login", {
+          .post("/auth/login", {
             email: this.user.email,
             password: this.user.password,
           })
@@ -91,6 +91,10 @@ export default {
             console.log(error.data);
           });
       });
+
+      // await this.$axios.get('http://api.tortam.ru/public/api/v1/sanctum/csrf-cookie').then(response => {
+      //   console.log(response)
+      // });
 
       // if (this.error.result) {
       //   await this.$axios.get('/sanctum/csrf-cookie').then(response => {

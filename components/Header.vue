@@ -1,25 +1,19 @@
 <template>
   <header class="header">
-    <div class="row">
-      <div class="col-2">
-        <Logo/>
-      </div>
-      <div class="col-10">
-        <Navigation/>
-      </div>
-    </div>
-
+    <topHeader/>
   </header>
 </template>
 
 <script>
 import Navigation from './Navigation.vue'
 import Logo from './Logo.vue'
+import topHeader from './topHeader.vue'
 
 export default {
   components: {
     Navigation,
-    Logo
+    Logo,
+    topHeader
   }
 }
 </script>
@@ -28,8 +22,6 @@ export default {
 .header {
   position: fixed;
   width: 100%;
-  padding: 15px;
-  /*border-bottom: 1px solid #00769B;*/
   background-color: #fff;
   box-shadow: 0 2px 7px 0 rgb(0 0 0 / 4%);
   border-radius: 10px;

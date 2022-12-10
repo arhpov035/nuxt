@@ -1,13 +1,13 @@
 <template>
   <div class="layout-default">
-    <Header/>
+    <!-- <Header/> -->
     <main class="page-about">
       <div class="container">
         <div class="content">
           <Nuxt/>
         </div>
         <div class="form-login">
-          <LoginForm/>
+          <!-- <LoginForm/> -->
         </div>
       </div>
     </main>
