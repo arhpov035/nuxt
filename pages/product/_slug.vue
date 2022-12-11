@@ -11,6 +11,23 @@
       </div>
       <div class="rigth">
         <h1>{{ this.product.name }}</h1>
+        <div class="price_block">
+          <div class="before item">
+            <div class="currency">₽</div>
+            <div class="info">
+              <div class="num">1280 руб/кг до 4 кг</div>
+              <div class="desc">декор и фигурки не входят в цену</div>
+            </div>
+          </div>
+          <div class="after item">
+            <div class="currency">₽</div>
+            <div class="info">
+              <div class="num">2150 руб/кг от 4 кг</div>
+              <div class="desc">декор и фигурки входят в цену</div>
+            </div>
+          </div>
+        </div>
+        <Weight />
       </div>
     </div>
     <!-- <img class="img-fluid" src="@/static/images/196630897_1151373371995541_615135495759398720_n.jpg" :alt="product.image"> -->
@@ -19,10 +36,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-// import PageTitle from '~/components/PageTitle.vue'
+import Weight from "~/components/Weight.vue";
 
 export default {
   layout: "product",
+  components: {
+    Weight,
+  },
   head() {
     return {
       title: this.metaTitle,
@@ -99,5 +119,35 @@ h1 {
     padding-bottom: 10px;
     box-shadow: 0 2px 7px 0 rgb(0 0 0 / 4%);
     border-radius: 2px; */
+  color: #414141;
+}
+
+.price_block {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.price_block .item {
+  display: flex;
+  align-items: center;
+}
+
+.currency {
+  font-size: 45px;
+  padding-right: 10px;
+}
+.before .currency {
+  color: #f33;
+}
+.after .currency {
+  color: #009ce6;
+}
+.num {
+  font-size: 14px;
+  font-weight: bold;
+}
+.desc {
+  font-size: 12.5px;
+  color: #414141;
 }
 </style>
