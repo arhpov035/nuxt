@@ -66,6 +66,7 @@ export default {
         if (i == index) {
           el.classList.add("active");
         }
+        
         switch (i) {
           case 0:
             price_order.innerHTML = price_kg_before * 2;

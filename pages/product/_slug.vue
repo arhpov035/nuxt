@@ -1,36 +1,38 @@
 <template>
   <div class="page-product">
-    <!--    <PageTitle :title="this.product.name"/>-->
-    <div class="product-desc">
-      <div class="img">
-        <img
-          class="img-fluid"
-          :src="`../images/${product.image}`"
-          :alt="product.image"
-        />
-      </div>
-      <div class="rigth">
-        <h1>{{ this.product.name }}</h1>
-        <div class="price_block">
-          <div class="before item">
-            <div class="currency">₽</div>
-            <div class="info">
-              <div class="num">1280 руб/кг до 4 кг</div>
-              <div class="desc">декор и фигурки не входят в цену</div>
-            </div>
-          </div>
-          <div class="after item">
-            <div class="currency">₽</div>
-            <div class="info">
-              <div class="num">2150 руб/кг от 4 кг</div>
-              <div class="desc">декор и фигурки входят в цену</div>
-            </div>
-          </div>
+    <div class="container">
+      <div class="product-desc">
+        <div class="img">
+          <img
+            class="img-fluid"
+            :src="`../images/${product.image}`"
+            :alt="product.image"
+          />
         </div>
-        <Weight />
+        <div class="rigth">
+          <h1>{{ this.product.name }}</h1>
+          <div class="price_block">
+            <div class="before item">
+              <div class="currency">₽</div>
+              <div class="info">
+                <div class="num">1280 руб/кг до 4 кг</div>
+                <div class="desc">декор и фигурки не входят в цену</div>
+              </div>
+            </div>
+            <div class="after item">
+              <div class="currency">₽</div>
+              <div class="info">
+                <div class="num">2150 руб/кг от 4 кг</div>
+                <div class="desc">декор и фигурки входят в цену</div>
+              </div>
+            </div>
+          </div>
+          <Weight />
+        </div>
       </div>
+      <orderLeftSideBar/>
     </div>
-    <!-- <img class="img-fluid" src="@/static/images/196630897_1151373371995541_615135495759398720_n.jpg" :alt="product.image"> -->
+    <!--  -->
   </div>
 </template>
 

@@ -14,6 +14,6 @@
 }
 .curency {
   font-size: 50px;
-  color: #198754;
+  color: #155f3d;
 }
 </style>

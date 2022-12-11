@@ -2,13 +2,13 @@
   <div class="layout-product">
     <Header/>
     <main class="page-about">
-      <div class="container">
+      <div class="">
         <div class="content">
           <Nuxt/>
         </div>
-        <div class="form-login">
-          <orderLeftSideBar/>
-        </div>
+        <!-- <div class="form-login"> -->
+          <!-- <orderLeftSideBar/> -->
+        <!-- </div> -->
       </div>
     </main>
     <Footer/>
