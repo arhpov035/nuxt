@@ -1,6 +1,6 @@
 <template>
   <div class="order">
-    <div><span id="price_order">2560</span> <span class="curency">₽</span></div>
+    <div><span id="price_order">2800</span> <span class="curency">₽</span></div>
   </div>
 </template>
 

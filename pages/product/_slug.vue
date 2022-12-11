@@ -15,7 +15,7 @@
             <div class="before item">
               <div class="currency">₽</div>
               <div class="info">
-                <div class="num">1280 руб/кг до 4 кг</div>
+                <div class="num">1400 руб/кг до 4 кг</div>
                 <div class="desc">декор и фигурки не входят в цену</div>
               </div>
             </div>

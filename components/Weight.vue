@@ -58,7 +58,7 @@ export default {
     addClass(i) {
       let elems = document.querySelectorAll(".weight .item");
       let price_order = document.querySelector("#price_order");
-      let price_kg_before = 1280;
+      let price_kg_before = 1400;
       let price_kg_after = 2150;
 
       [].forEach.call(elems, function (el, index) {
