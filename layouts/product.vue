@@ -7,7 +7,7 @@
           <Nuxt/>
         </div>
         <div class="form-login">
-          <LoginForm/>
+          <orderLeftSideBar/>
         </div>
       </div>
     </main>
