@@ -1,47 +1,47 @@
 <template>
   <div class="weight">
     <div class="items">
-      <div class="item active" @click="addClass">
+      <div class="item active" @click="addClass(0)">
         <div class="num">2</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(1)">
         <div class="num">2.5</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(2)">
         <div class="num">3</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(3)">
         <div class="num">4</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(4)">
         <div class="num">5</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(5)">
         <div class="num">6</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(6)">
         <div class="num">7</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(7)">
         <div class="num">8</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(8)">
         <div class="num">9</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(9)">
         <div class="num">10</div>
         <div class="kg">кг</div>
       </div>
-      <div class="item" @click="addClass">
+      <div class="item" @click="addClass(10)">
         <div class="num">11</div>
         <div class="kg">кг</div>
       </div>
@@ -55,16 +55,31 @@
 <script>
 export default {
   methods: {
-    addClass: function (event) {
-      let elems = document.querySelectorAll(".item");
-      [].forEach.call(elems, function (el) {
+    addClass (i) {
+      let elems = document.querySelectorAll(".weight .item");
+      [].forEach.call(elems, function (el, index) {
         el.classList.remove("active");
+        if  (i == index) {
+          el.classList.add("active");
+        }
+        console.log(index)
+        console.log(i)
       });
-      document.querySelectorAll(".item").forEach((el) =>
-        el.addEventListener("click", function (e) {
-          this.classList.add("active");
-        })
-      );
+
+      // console.log(elems[0].textContent)
+
+      // document.querySelectorAll(".item").forEach((el) =>
+      //   el.addEventListener("click", function (e) {
+      //     this.classList.add("active");
+      //   })
+      // );
+
+
+      // document.querySelectorAll(".item").forEach((n, i, a) => {
+      //   n.addEventListener("click", () =>
+      //     a.forEach((m) => m.classList.toggle("active", m === n))
+      //   );
+      // });
     },
   },
 };
