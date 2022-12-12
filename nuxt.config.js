@@ -33,13 +33,24 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.google.com/specimen/Alegreya+Sans/tester?subset=cyrillic'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'
       }
-    ]
+    ],
+    script: [
+      {
+        src: "/swiper.js",
+      },
+      {
+        src: "/script.js",
+      },
+    ],
   },
 
   css: [
     '@/assets/main.css',
-    '@/assets/valideform.js',
   ],
 
   plugins: [],

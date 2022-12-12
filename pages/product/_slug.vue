@@ -28,6 +28,7 @@
             </div>
           </div>
           <Weight />
+          <fillingSlide />
         </div>
       </div>
       <orderLeftSideBar/>
@@ -39,11 +40,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Weight from "~/components/Weight.vue";
+import fillingSlide from "~/components/fillingSlide.vue";
 
 export default {
   layout: "product",
   components: {
     Weight,
+    fillingSlide
   },
   head() {
     return {
