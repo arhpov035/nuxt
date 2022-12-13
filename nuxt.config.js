@@ -37,15 +37,20 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: '/slicke.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: '/slicke.css'
       }
     ],
     script: [
-      {
-        src: "/swiper.js",
-      },
-      {
-        src: "/script.js",
-      },
+      // { hid: 'stripe', src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', defer: true },
+//       { hid: 'stripe', src: '/swiper.js', defer: true },
+//         { hid: 'stripe', src: '/script.js', defer: true },
     ],
   },
 

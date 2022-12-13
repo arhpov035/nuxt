@@ -1,1 +1,4 @@
-new Swiper('.swiper');
+$(document).ready(function(){
+    $('.filling').slick();
+})
+
