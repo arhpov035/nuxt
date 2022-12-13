@@ -40,17 +40,12 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: '/slicke.css'
+        href: '/slick/slick.css'
       },
       {
         rel: 'stylesheet',
-        href: '/slicke.css'
+        // href: '/slick/slickteme.css'
       }
-    ],
-    script: [
-      // { hid: 'stripe', src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', defer: true },
-//       { hid: 'stripe', src: '/swiper.js', defer: true },
-//         { hid: 'stripe', src: '/script.js', defer: true },
     ],
   },
 
